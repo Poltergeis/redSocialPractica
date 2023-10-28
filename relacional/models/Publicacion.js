@@ -8,7 +8,7 @@ const Publicacion = sequelize.define('publicacion', {
         autoIncrement: true
     },
     titulo: {
-        type: sequelize.INTEGER
+        type: sequelize.STRING
     },
     contenido: {
         type: sequelize.TEXT
@@ -24,3 +24,5 @@ const Publicacion = sequelize.define('publicacion', {
         }
     }
 });
+
+module.exports = Publicacion;

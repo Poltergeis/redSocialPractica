@@ -36,7 +36,7 @@ router.get('/buscar/:email', (req,res) => {
 
 router.delete('/eliminar/:email', (req,res) => {
     const email = req.params.email;
-    usuario.destroy({
+    Usuario.destroy({
         where: { email: email }
     }).then(() => {
             res.status(204).send();
