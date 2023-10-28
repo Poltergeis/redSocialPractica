@@ -18,14 +18,16 @@ const Comentario = sequelize.define('comentario', {
         type: sequelize.INTEGER,
         references: {
             model: Publicacion,
-            key: 'id'
+            key: 'id',
+            onDelete: 'CASCADE'
         }
     },
     usuarioId: {
         type: sequelize.INTEGER,
         references: {
             model: Usuario,
-            key: 'id'
+            key: 'id',
+            onDelete: 'CASCADE'
         }
     }
 });

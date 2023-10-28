@@ -20,7 +20,8 @@ const Publicacion = sequelize.define('publicacion', {
         type: sequelize.INTEGER,
         references: {
             model: Usuario,
-            key: 'id'
+            key: 'id',
+            onDelete: 'CASCADE'
         }
     }
 });
