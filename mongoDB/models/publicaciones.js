@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const Comentario = require('./comentarios');
 
 const modeloPublicaciones = mongoose.Schema({
   "titulo": String,
@@ -7,6 +8,15 @@ const modeloPublicaciones = mongoose.Schema({
   "usuario":{
     type: mongoose.Schema.Types.ObjectId,
     ref: 'usuario'
+  }
+});
+
+modeloPublicaciones.pre("remove", async function (next) {
+  try {
+    await Comentario.deleteMany({ publicacion: this._id });
+    next();
+  } catch (error) {
+    next(error);
   }
 });
 
