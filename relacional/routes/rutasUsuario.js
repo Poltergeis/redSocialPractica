@@ -1,7 +1,6 @@
 const express = require("express");
 const router = express.Router();
 const Usuario = require("../models/usuario");
-const usuario = require("../../mongoDB/models/usuario");
 
 router.post('/agregar', (req,res) => {
     const usuario = Usuario.build({
@@ -20,7 +19,7 @@ router.post('/agregar', (req,res) => {
 
 router.get('/buscar/:email', (req,res) => {
     const email = req.params.email;
-    usuario.findOne({
+    Usuario.findOne({
         where: {email: email}
     }).then(usuarioEncontrado => {
         if (usuarioEncontrado) {

@@ -78,3 +78,5 @@ router.delete('/eliminar/:fecha/:publicacionId', (req,res) => {
         res.status(500).json( { error: "error al buscar el comentario" });
     });
 });
+
+module.exports = router;
