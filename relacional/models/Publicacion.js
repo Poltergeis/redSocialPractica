@@ -1,5 +1,5 @@
 const sequelize = require("sequelize");
-const Usuario = require("../../mongoDB/models/usuario");
+const Usuario = require("./usuario");
 
 const Publicacion = sequelize.define('publicacion', {
     id: {
