@@ -47,11 +47,7 @@ router.put('/actualizar/:usuarioID/:publicacionID', async (req, res) => {
     try{
         const {fecha, publicacionID} = req.params;
         fecha = new Date(fecha);
-        const comentario = await Comentario.findOne({ fecha_creacion: fecha, publicacion: publicacionID });
-        if (!comentario) {
-            return res.status(404).json({ mensaje: 'No se encontró ningún comentario' });
-        }
-        await comentario.remove();
+        await Comentario.deleteMany({ fecha_creacion: fecha, publicacion: publicacionID });
         res.status(200).json({ mensaje: 'Comentario eliminado con éxito' });
     }catch(error){
         console.error(error);

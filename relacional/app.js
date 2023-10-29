@@ -28,6 +28,5 @@ sequelize.authenticate()
 });
 
 app.listen(3991,() => {
-    console.log("corriendo en el puerto 3991");/*puerto 3991 para que no tengas conflicto 
-    si usas las vistas en 3000 yuen*/
+    console.log("corriendo en el puerto 3991");
 });

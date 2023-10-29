@@ -28,11 +28,7 @@ router.get('/encontrar/:email', async (req,res) => {
 
 router.delete('/eliminar/:email', async (req,res) => {
     try{
-        const usuario = await Usuario.findOne({ email: req.params.email });
-        if(!usuario){
-            return res.status(404).json({ mensaje: "no se ha encontrado al usuario" });
-        }
-        await usuario.remove();
+        await Usuario.deleteMany({ email: req.params.email });
         res.status(200).json({ mensaje: "Usuario eliminado con éxito" });
     }catch(error){
         console.error(error);

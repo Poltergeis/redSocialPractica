@@ -46,11 +46,7 @@ router.get('/encontrar/:usuarioID', async (req,res) => {
 router.delete('/eliminar/:fecha', async (req,res) => {
     try{
         const fecha = new Date(req.params.fecha);
-        const publicacion = await Publicacion.findOne({ fecha_creacion: fecha});
-        if(!publicacion){
-            return res.status(404).json({ mensaje: "no se ha encontrado la publicacion" });
-        }
-        await publicacion.remove();
+        await Publicacion.deleteMany({ fecha_creacion: fecha});
         res.status(200).json({ mensaje: "Publicación eliminada con éxito" });
     }catch(error){
         console.error(error);
